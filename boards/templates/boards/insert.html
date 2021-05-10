@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}게시글 입력 폼{% endblock title %}
+
+{% block contents %}
+
+<form action="/boards/insert/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock contents %}
