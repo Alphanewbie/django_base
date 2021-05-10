@@ -5,7 +5,11 @@ from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 def index(request) :
-    return render(request, 'boards/index.html')
+    posts = Post.objects.all()
+    context = {
+        'posts' : posts,
+    }
+    return render(request, 'boards/index.html', context)
 
 @require_http_methods({'POST', 'GET'})
 def insert(request):

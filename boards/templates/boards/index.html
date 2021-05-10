@@ -3,5 +3,17 @@
 {% block title %}index{% endblock title %}
 
 {% block contents %}
-    <h1>hello</h1>
+    <table class="table table-dark table-hover">
+    {% for post in posts %}
+    <tr >
+        <td>{{post.pk}}</td>
+        <td>
+            <a href="{% url 'boards:detail' post.pk %}">
+                {{post.title}}
+            </a>
+        </td>
+        <td>{{post.created_at}}</td>
+    </tr>
+    {% endfor %}
+    </table>
 {% endblock contents %}
